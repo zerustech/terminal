@@ -14,6 +14,8 @@ use ZerusTech\Component\Threaded\Stream\Output\PipedOutputStream;
 
 class ScreenToolTest extends \PHPUnit_Framework_TestCase
 {
+    private $screenToolFQN = 'ZerusTech\Component\Terminal\Tool\ScreenTool';
+
     /**
      * @dataProvider dataForTestClear
      */
@@ -133,7 +135,7 @@ class ScreenToolTest extends \PHPUnit_Framework_TestCase
     {
         $tool = ToolTestUtil::getScreenToolInstance();
 
-        $reflection = new \ReflectionClass(ScreenTool::class);
+        $reflection = new \ReflectionClass($this->screenToolFQN);
         $method = $reflection->getMethod('findColorIndexByAlias');
         $method->setAccessible(true);
         $this->assertEquals($index, $method->invokeArgs($tool, [$alias]));
@@ -158,7 +160,7 @@ class ScreenToolTest extends \PHPUnit_Framework_TestCase
     {
         $tool = ToolTestUtil::getScreenToolInstance();
 
-        $reflection = new \ReflectionClass(ScreenTool::class);
+        $reflection = new \ReflectionClass($this->screenToolFQN);
         $method = $reflection->getMethod('findColorIndexByRGB');
         $method->setAccessible(true);
         $this->assertEquals($index, $method->invokeArgs($tool, [$rgb]));
@@ -187,7 +189,7 @@ class ScreenToolTest extends \PHPUnit_Framework_TestCase
     {
         $tool = ToolTestUtil::getScreenToolInstance();
 
-        $reflection = new \ReflectionClass(ScreenTool::class);
+        $reflection = new \ReflectionClass($this->screenToolFQN);
         $method = $reflection->getMethod('findColorIndexByRGB');
         $method->setAccessible(true);
         $this->assertEquals($index, $method->invokeArgs($tool, [$rgb]));
@@ -210,7 +212,7 @@ class ScreenToolTest extends \PHPUnit_Framework_TestCase
      */
     public function testColorize($color, $cmd, $index, $type)
     {
-        $reflection = new \ReflectionClass(ScreenTool::class);
+        $reflection = new \ReflectionClass($this->screenToolFQN);
         $method = $reflection->getMethod('colorize');
         $method->setAccessible(true);
 
@@ -269,7 +271,7 @@ class ScreenToolTest extends \PHPUnit_Framework_TestCase
     public function testForegroundAndBackgroundColor()
     {
         $tool = $this
-            ->getMockBuilder(ScreenTool::class)
+            ->getMockBuilder($this->screenToolFQN)
             ->setMethods(['colorize'])
             ->disableOriginalConstructor()
             ->getMock();

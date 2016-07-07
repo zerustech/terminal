@@ -23,24 +23,32 @@ use ZerusTech\Component\IO\Stream\Output\OutputStreamInterface;
  */
 class AbstractToolTest extends \PHPUnit_Framework_TestCase
 {
+    private $abstractToolFQN = 'ZerusTech\Component\Terminal\Tool\AbstractTool';
+
+    private $terminfoFQN = 'ZerusTech\Component\Terminal\Terminfo\Terminfo';
+
+    private $terminalFQN = 'ZerusTech\Component\Terminal\Terminal';
+
+    private $outputStreamInterfaceFQN = 'ZerusTech\Component\IO\Stream\Output\OutputStreamInterface';
+
     public function testConstructor()
     {
         $terminal = TerminalTestUtil::getTerminalInstance();
 
-        $tool = $this->getMockForAbstractClass(AbstractTool::class, [$terminal]);
+        $tool = $this->getMockForAbstractClass($this->abstractToolFQN, [$terminal]);
 
         $this->assertSame($terminal, $tool->getTerminal());
     }
 
     public function testSend()
     {
-        $reflection = new \ReflectionClass(AbstractTool::class);
+        $reflection = new \ReflectionClass($this->abstractToolFQN);
         $method = $reflection->getMethod('send');
         $method->setAccessible(true);
 
         $terminal = TerminalTestUtil::getTerminalInstance();
 
-        $output = $this->getMockForAbstractClass(OutputStreamInterface::class);
+        $output = $this->getMockForAbstractClass($this->outputStreamInterfaceFQN);
 
         $output
             ->expects($this->once())
@@ -49,7 +57,7 @@ class AbstractToolTest extends \PHPUnit_Framework_TestCase
 
         $terminal->setOutput($output);
 
-        $tool = $this->getMockForAbstractClass(AbstractTool::class, [$terminal]);
+        $tool = $this->getMockForAbstractClass($this->abstractToolFQN, [$terminal]);
 
         $method->invokeArgs($tool, ['hello']);
     }
@@ -57,7 +65,7 @@ class AbstractToolTest extends \PHPUnit_Framework_TestCase
     public function testGetters()
     {
 
-        $reflection = new \ReflectionClass(AbstractTool::class);
+        $reflection = new \ReflectionClass($this->abstractToolFQN);
         $getString = $reflection->getMethod('getString');
         $getNumber = $reflection->getMethod('getNumber');
         $getBoolean = $reflection->getMethod('getBoolean');
@@ -67,7 +75,7 @@ class AbstractToolTest extends \PHPUnit_Framework_TestCase
         $getBoolean->setAccessible(true);
 
         $terminfo = $this
-            ->getMockBuilder(Terminfo::class)
+            ->getMockBuilder($this->terminfoFQN)
             ->setMethods(['getString', 'getNumber', 'getBoolean'])
             ->getMock();
 
@@ -90,7 +98,7 @@ class AbstractToolTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue('boolean value'));
 
         $terminal = $this
-            ->getMockBuilder(Terminal::class)
+            ->getMockBuilder($this->terminalFQN)
             ->setMethods(['getTerminfo'])
             ->disableOriginalConstructor()
             ->getMock();
@@ -100,7 +108,7 @@ class AbstractToolTest extends \PHPUnit_Framework_TestCase
             ->method('getTerminfo')
             ->will($this->returnValue($terminfo));
 
-        $tool = $this->getMockForAbstractClass(AbstractTool::class, [$terminal]);
+        $tool = $this->getMockForAbstractClass($this->abstractToolFQN, [$terminal]);
 
         $this->assertEquals('string value', $getString->invokeArgs($tool, ['string name']));
         $this->assertEquals('number value', $getNumber->invokeArgs($tool, ['number name']));
