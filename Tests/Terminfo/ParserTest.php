@@ -32,9 +32,9 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
     public function setup()
     {
-        $this->base = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Fixtures';
+        $this->base = __DIR__.'/../'.'Fixtures';
 
-        $this->path = $this->base.DIRECTORY_SEPARATOR.'xterm-256color';
+        $this->path = $this->base.'/xterm-256color';
 
         $this->data = file_get_contents($this->path);
 

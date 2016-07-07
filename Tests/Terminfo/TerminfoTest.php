@@ -123,7 +123,7 @@ class TerminfoTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $info[Parser::KEY_RAW_DATA],
-            file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Fixtures/'.$termFile)
+            file_get_contents(__DIR__.'/../Fixtures/'.$termFile)
         );
     }
 
