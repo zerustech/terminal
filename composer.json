@@ -1,0 +1,27 @@
+{
+    "name": "zerustech/terminal",
+    "description": "ZerusTech Terminal Component",
+    "type": "library",
+    "keywords": ["php", "cli", "console", "cursor", "ansi", "terminal", "color"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Lee",
+            "email": "michael.lee@zerustech.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "zerustech/io": "dev-master"
+    },
+    "require-dev": {
+        "zerustech/threaded": "v1.0.x-dev",
+        "mikey179/vfsStream": ">=1.6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZerusTech\\Component\\Terminal\\": ".",
+            "ZerusTech\\Component\\Terminal\\Tests\\": "./Tests"
+        }
+    }
+}
