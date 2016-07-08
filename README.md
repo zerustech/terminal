@@ -1,3 +1,5 @@
+[![Build Status](https://api.travis-ci.org/zerustech/terminal.svg)](https://travis-ci.org/zerustech/terminal)
+
 ZerusTech Terminal Component
 ================================================
 The *ZerusTech Terminal Component* is a lightweight library for controlling
@@ -224,7 +226,9 @@ References
 * [The stty(1) man page][9]
 * [The infocmp(1) man page][10]
 * [The xterm 256 color palette][11]
-
+* [The zerustech/io project][13]
+* [The zerustech/threaded project][14]
+* [The zerustech/terminal project][15]
 
 [1]:  https://github.com/hoaproject/Console "The hoa/console Project"
 [2]:  https://opensource.org/licenses/MIT "The MIT License (MIT)"
@@ -238,6 +242,9 @@ References
 [10]: http://manpages.sgvulcan.com/infocmp.1m.php "The infocmp(1) Man Page" 
 [11]: https://en.wikipedia.org/wiki/File:Xterm_256color_chart.svg "The Xterm 256 Color Palette"
 [12]: https://github.com/symfony/console "The Symfony Console Component"
+[13]:  https://github.com/zerustech/io "The zerustech/io Project"
+[14]:  https://github.com/zerustech/threaded "The zerustech/threaded Project"
+[15]:  https://github.com/zerustech/terminal "The zerustech/terminal Project"
 
 License
 -------
