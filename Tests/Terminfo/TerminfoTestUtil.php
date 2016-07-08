@@ -54,7 +54,7 @@ class TerminfoTestUtil
     /**
      * @var string The fixtures directory.
      */
-    protected static $base = __DIR__.'/../Fixtures';
+    protected static $base = '/../Fixtures/';
 
     /**
      * Parses all capability names from Caps file:
@@ -69,7 +69,7 @@ class TerminfoTestUtil
      */
     public static function getCapabilityNames()
     {
-        $file = static::$base.'/ncurses-6.0/include/Caps';
+        $file = __DIR__.static::$base.'ncurses-6.0/include/Caps';
 
         $fp = fopen($file, 'rb');
 
@@ -211,9 +211,9 @@ class TerminfoTestUtil
 
             mkdir(vfsStream::url($alphaBasePath), 0777, true);
 
-            copy(static::$base.'/'.$termFile, vfsStream::url($hexaBasePath.'/'.$termFile));
+            copy(__DIR__.static::$base.$termFile, vfsStream::url($hexaBasePath.'/'.$termFile));
 
-            copy(static::$base.'/'.$termFile, vfsStream::url($alphaBasePath.'/'.$termFile));
+            copy(__DIR__.static::$base.$termFile, vfsStream::url($alphaBasePath.'/'.$termFile));
         }
     }
 }
