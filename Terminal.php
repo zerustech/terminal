@@ -5,8 +5,8 @@
  *
  * (c) Michael Lee <michael.lee@zerustech.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view the LICENSE file
+ * that was distributed with this source code.
  */
 
 namespace ZerusTech\Component\Terminal;
@@ -183,7 +183,7 @@ class Terminal
     /**
      * Returns cursor tool of current terminal.
      *
-     * @return Tool\CursorTool The cursor tool.
+     * @return CursorTool The cursor tool.
      */
     public function getCursor()
     {
@@ -193,7 +193,7 @@ class Terminal
     /**
      * Returns screen tool of current terminal.
      *
-     * @return Tool\ScreenTool The screen tool.
+     * @return ScreenTool The screen tool.
      */
     public function getScreen()
     {
@@ -203,7 +203,7 @@ class Terminal
     /**
      * Returns terminfo of current terminal.
      *
-     * @return Terminfo\Terminfo The terminfo.
+     * @return Terminfo The terminfo.
      */
     public function getTerminfo()
     {
@@ -211,9 +211,9 @@ class Terminal
     }
 
     /**
-     * Returns input file of current terminal.
+     * Returns input stream of current terminal.
      *
-     * @return Input\InputInterface The input file.
+     * @return InputStreamInterface The input file.
      */
     public function getInput()
     {
@@ -221,9 +221,9 @@ class Terminal
     }
 
     /**
-     * Returns output file of current terminal.
+     * Returns output stream of current terminal.
      *
-     * @return Output\OutputInterface The output file.
+     * @return OutputStreamInterface The output file.
      */
     public function getOutput()
     {
@@ -269,8 +269,8 @@ class Terminal
     }
 
     /**
-     * Sets input file for current terminal.
-     * @param Input\InputInterface $in The input stream.
+     * Sets input stream for current terminal.
+     * @param InputStreamInterface $in The input stream.
      * @return Terminal Current instance.
      */
     public function setInput($input)
@@ -281,8 +281,8 @@ class Terminal
     }
 
     /**
-     * Sets output file for current terminal.
-     * @param Output\OutputInterface $out The input stream.
+     * Sets output stream for current terminal.
+     * @param OutputStreamInterface $out The output stream.
      * @return Terminal Current instance.
      */
     public function setOutput($output)

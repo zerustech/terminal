@@ -5,8 +5,8 @@
  *
  * (c) Michael Lee <michael.lee@zerustech.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view the LICENSE file
+ * that was distributed with this source code.
  */
 
 namespace ZerusTech\Component\Terminal\Tool;
@@ -104,7 +104,7 @@ class ScreenTool extends AbstractTool
      * values include: 'all', 'bol', 'eol' and 'eos'.
      *
      * @param string $part The part to be cleared.
-     * @return Tool Current instance.
+     * @return ScreenTool Current instance.
      */
     public function clear($part = 'all')
     {
@@ -149,7 +149,7 @@ class ScreenTool extends AbstractTool
      *
      * @param string $part Controls what to delete.
      * @param int $count The number of parts to be deleted.
-     * @return Tool Current instance.
+     * @return ScreenTool Current instance.
      */
     public function delete($part, $count = 1)
     {
@@ -178,7 +178,7 @@ class ScreenTool extends AbstractTool
      *
      * @param string $part Controls what to insert. For now, only 'line' is valid.
      * @param int $count Number of lines to be inserted, 1 by default.
-     * @return Tool Current instance.
+     * @return ScreenTool Current instance.
      */
     public function insert($part = 'line', $count = 1)
     {
@@ -206,7 +206,7 @@ class ScreenTool extends AbstractTool
      * parameter. Modes 'none' and 'hide' can only be turned on.
      * @param string $mode The display mode.
      * @param bool $toggle True to turn on the given mode, and false otherwise.
-     * @return Tool Current instance.
+     * @return ScreenTool Current instance.
      */
     public function mode($mode, $toggle = true)
     {
@@ -260,7 +260,7 @@ class ScreenTool extends AbstractTool
      * The color can be given as a hexadecimal RGB value or aliase.
      *
      * @param string $color The foreground color.
-     * @return Tool Current instance.
+     * @return ScreenTool Current instance.
      */
     public function foregroundColor($color)
     {
@@ -272,7 +272,7 @@ class ScreenTool extends AbstractTool
      *
      * @see foregroundColor()
      * @param string $color The background color.
-     * @return Tool Current instance.
+     * @return ScreenTool Current instance.
      */
     public function backgroundColor($color)
     {
@@ -292,7 +292,7 @@ class ScreenTool extends AbstractTool
      *
      * @param string $color The color to replace current color.
      * @param int $offset 30 for foreground and 40 for background.
-     * @return Tool Current instance.
+     * @return ScreenTool Current instance.
      */
     protected function colorize($color, $offset = 30)
     {

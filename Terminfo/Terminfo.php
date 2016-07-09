@@ -767,7 +767,7 @@ class Terminfo
 
         if (isset($_SERVER['HOME'])) {
 
-            $paths[] = $root.$_SERVER['HOME'].DIRECTORY_SEPARATOR.'.terminfo';
+            $paths[] = $root.$_SERVER['HOME'].'/.terminfo';
         }
 
         if (isset($_SERVER['TERMINFO_DIRS'])) {
@@ -792,16 +792,14 @@ class Terminfo
         $paths[] = $root.'/opt/local/lib/terminfo';
 
         $term = $term ? : static::getDefaultTerm();
-        $fileHexa = dechex(ord($term[0])).DIRECTORY_SEPARATOR.$term;
-        $fileAlpha = $term[0].DIRECTORY_SEPARATOR.$term;
+        $fileHexa = dechex(ord($term[0])).'/'.$term;
+        $fileAlpha = $term[0].'/'.$term;
 
         $pathName = null;
 
         foreach ($paths as $path) {
 
-            $path = str_replace('/', DIRECTORY_SEPARATOR, $path);
-
-            if (file_exists($currentPath = $path.DIRECTORY_SEPARATOR.$fileHexa) || file_exists($currentPath = $path.DIRECTORY_SEPARATOR.$fileAlpha)) {
+            if (file_exists($currentPath = $path.'/'.$fileHexa) || file_exists($currentPath = $path.'/'.$fileAlpha)) {
 
                 $pathName = $currentPath;
 

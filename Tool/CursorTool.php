@@ -5,8 +5,8 @@
  *
  * (c) Michael Lee <michael.lee@zerustech.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view the LICENSE file
+ * that was distributed with this source code.
  */
 
 namespace ZerusTech\Component\Terminal\Tool;
@@ -95,7 +95,7 @@ class CursorTool extends AbstractTool
      *
      * @param string $row The row number.
      * @param string $col The column number.
-     * @return Tool Current instance.
+     * @return CursorTool Current instance.
      */
     public function moveTo($row = null, $col = null)
     {
@@ -121,7 +121,7 @@ class CursorTool extends AbstractTool
      *
      * @param string $direction The direction of cursor movement.
      * @param int $steps The steps to move, 1 by default.
-     * @return Tool Current instance.
+     * @return CursorTool Current instance.
      */
     public function move($direction, $steps = 1)
     {
@@ -166,7 +166,7 @@ class CursorTool extends AbstractTool
     /**
      * Saves current cursor position.
      *
-     * @return Tool Current instance.
+     * @return CursorTool Current instance.
      */
     public function save()
     {
@@ -178,7 +178,7 @@ class CursorTool extends AbstractTool
     /**
      * Restores cursor to the last saved position.
      *
-     * @return Tool Current instance.
+     * @return CursorTool Current instance.
      */
     public function restore()
     {
@@ -190,7 +190,7 @@ class CursorTool extends AbstractTool
     /**
      * Hides cursor.
      *
-     * @return Tool Current instance.
+     * @return CursorTool Current instance.
      */
     public function hide()
     {
@@ -202,7 +202,7 @@ class CursorTool extends AbstractTool
     /**
      * Reveals cursor.
      *
-     * @return Tool Current instance.
+     * @return CursorTool Current instance.
      */
     public function show()
     {

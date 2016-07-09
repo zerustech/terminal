@@ -5,11 +5,13 @@
  *
  * (c) Michael Lee <michael.lee@zerustech.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view the LICENSE file
+ * that was distributed with this source code.
  */
 
 namespace ZerusTech\Component\Terminal\Tool;
+
+use ZerusTech\Component\Terminal\Terminal;
 
 /**
  * The generic class that abstracts all terminal tools.
@@ -21,14 +23,14 @@ namespace ZerusTech\Component\Terminal\Tool;
 abstract class AbstractTool
 {
     /**
-     * @var ZerusTech\Component\Terminal\Terminal Current terminal.
+     * @var Terminal Current terminal.
      */
     protected $terminal;
 
     /**
      * Constructor.
      *
-     * @param ZerusTech\Component\Terminal\Terminal Current terminal.
+     * @param Terminal Current terminal.
      */
     public function __construct($terminal)
     {
@@ -38,7 +40,7 @@ abstract class AbstractTool
     /**
      * Returns current terminal.
      *
-     * @return ZerusTech\Component\Terminal\Terminal Current terminal.
+     * @return Terminal Current terminal.
      */
     public function getTerminal()
     {
