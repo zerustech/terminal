@@ -7,6 +7,9 @@ This changelog references the relavant changes (bug and security fixes) done in
 To get the new features in this major release, check the list at the bottom of
 this file.
 
+* 1.0.5 (2016-08-10)
+    * Changed dev-master alias to 1.0-dev
+
 * 1.0.4 (2016-08-10)
     * Moved source code to ``src``
     * Removed ``composer.lock``
