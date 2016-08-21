@@ -31,7 +31,8 @@ class CursorToolTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(['row' => 10, 'col' => 20], $tool->getPosition());
 
-        $this->assertEquals("\033[6n", $monitor->read(4));
+        $monitor->read($bytes, 4);
+        $this->assertEquals("\033[6n", $bytes);
     }
 
     /**
@@ -51,7 +52,8 @@ class CursorToolTest extends \PHPUnit_Framework_TestCase
 
         $terminal->setInput(new StringInputStream("\033[10;10R"));
         $tool->moveTo($row, $col);
-        $this->assertEquals($cmd, $monitor->read($length));
+        $monitor->read($bytes, $length);
+        $this->assertEquals($cmd, $bytes);
     }
 
     public function dataForTestMoveTo()
@@ -81,7 +83,8 @@ class CursorToolTest extends \PHPUnit_Framework_TestCase
 
         $terminal->setInput(new StringInputStream("\033[10;10R"));
         $tool->move($part, $steps);
-        $this->assertEquals($cmd, $monitor->read($length));
+        $monitor->read($bytes, $length);
+        $this->assertEquals($cmd, $bytes);
     }
 
     public function dataForTestMove()
@@ -113,10 +116,12 @@ class CursorToolTest extends \PHPUnit_Framework_TestCase
         $terminal->setOutput($output);
 
         $tool->save();
-        $this->assertEquals("\0337", $monitor->read(2));
+        $monitor->read($bytes, 2);
+        $this->assertEquals("\0337", $bytes);
 
         $tool->restore();
-        $this->assertEquals("\0338", $monitor->read(2));
+        $monitor->read($bytes, 2);
+        $this->assertEquals("\0338", $bytes);
     }
 
     public function testHideAndShow()
@@ -132,9 +137,11 @@ class CursorToolTest extends \PHPUnit_Framework_TestCase
         $terminal->setOutput($output);
 
         $tool->hide();
-        $this->assertEquals("\033[?25l", $monitor->read(6));
+        $monitor->read($bytes, 6);
+        $this->assertEquals("\033[?25l", $bytes);
 
         $tool->show();
-        $this->assertEquals("\033[?12;25h", $monitor->read(9));
+        $monitor->read($bytes, 9);
+        $this->assertEquals("\033[?12;25h", $bytes);
     }
 }

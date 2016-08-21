@@ -44,7 +44,7 @@ class CursorTool extends AbstractTool
 
         $this->send($cmd);
 
-        $this->terminal->getInput()->read(2); // skips \e and [
+        $this->terminal->getInput()->read($bytes, 2); // skips \e and [
 
         $response = '';
 
@@ -57,7 +57,7 @@ class CursorTool extends AbstractTool
         // The response format is ``"\033[{row};{column}R"``
         while (true) {
 
-            $c = $this->terminal->getInput()->read();
+            $this->terminal->getInput()->read($c);
 
             switch ($c) {
 

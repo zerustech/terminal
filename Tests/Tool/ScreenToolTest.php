@@ -32,7 +32,8 @@ class ScreenToolTest extends \PHPUnit_Framework_TestCase
         $terminal->setOutput($output);
 
         $tool->clear($part);
-        $this->assertEquals($cmd, $monitor->read($length));
+        $monitor->read($bytes, $length);
+        $this->assertEquals($cmd, $bytes);
     }
 
     public function dataForTestClear()
@@ -61,7 +62,8 @@ class ScreenToolTest extends \PHPUnit_Framework_TestCase
         $terminal->setOutput($output);
 
         $tool->delete($part, $steps);
-        $this->assertEquals($cmd, $monitor->read($length));
+        $monitor->read($bytes, $length);
+        $this->assertEquals($cmd, $bytes);
     }
 
     public function dataForTestDelete()
@@ -87,10 +89,12 @@ class ScreenToolTest extends \PHPUnit_Framework_TestCase
         $terminal->setOutput($output);
 
         $tool->insert();
-        $this->assertEquals("\033[1L", $monitor->read(4));
+        $monitor->read($bytes, 4);
+        $this->assertEquals("\033[1L", $bytes);
 
         $tool->insert('line', 10);
-        $this->assertEquals("\033[10L", $monitor->read(5));
+        $monitor->read($bytes, 5);
+        $this->assertEquals("\033[10L", $bytes);
     }
 
     /**
@@ -109,7 +113,8 @@ class ScreenToolTest extends \PHPUnit_Framework_TestCase
         $terminal->setOutput($output);
 
         $tool->mode($mode, $toggle);
-        $this->assertEquals($cmd, $monitor->read($length));
+        $monitor->read($bytes, $length);
+        $this->assertEquals($cmd, $bytes);
     }
 
     public function dataForTestMode()
@@ -241,7 +246,9 @@ class ScreenToolTest extends \PHPUnit_Framework_TestCase
 
             $method->invokeArgs($tool, [$color, $offset]);
 
-            $this->assertEquals($command, $monitor->read(strlen($command)));
+            $monitor->read($bytes, strlen($command));
+
+            $this->assertEquals($command, $bytes);
         }
     }
 
