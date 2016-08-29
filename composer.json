@@ -12,10 +12,10 @@
     ],
     "require": {
         "php": ">=5.4",
-        "zerustech/io": ">=2.0.0"
+        "zerustech/io": ">=2.1.0-dev"
     },
     "require-dev": {
-        "zerustech/threaded": "^1.1.2",
+        "zerustech/threaded": "^1.1.0-dev",
         "mikey179/vfsStream": ">=1.6.3"
     },
     "autoload": {
